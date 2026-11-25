@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Threat Analytics</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><link th:href="@{/css/phishguard.css}" rel="stylesheet"></head>
+<body><div class="app-shell"><aside class="sidebar"><h2 class="h5 mb-4">PhishGuard AI</h2><a href="/dashboard">Dashboard</a><a href="/scan/url">Website Scanner</a><a href="/scan/email">Email Scanner</a><a href="/history">Scan History</a><a class="active" href="/analytics">Threat Analytics</a><a href="/profile">Profile</a>
+<form method="post" action="/logout" class="mt-3"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><button class="btn btn-outline-light btn-sm w-100" type="submit">Logout</button></form></aside>
+<main class="main"><h1 class="h3 mb-4">Threat Analytics</h1><div id="analytics-status" class="alert alert-info">Loading your analytics…</div>
+<div class="row g-3">
+  <div class="col-md-4"><div class="card"><div class="card-body"><div id="total-scans" class="metric">—</div><span>Total scans</span></div></div></div>
+  <div class="col-md-4"><div class="card"><div class="card-body"><div id="phishing-detections" class="metric risk-high">—</div><span>Phishing detections</span></div></div></div>
+  <div class="col-md-4"><div class="card"><div class="card-body"><div id="high-risk-threats" class="metric risk-critical">—</div><span>High-risk threats</span></div></div></div>
+  <div class="col-md-4"><div class="card"><div class="card-body"><div id="analytics-url-scans" class="metric">—</div><span>URL scans</span></div></div></div>
+  <div class="col-md-4"><div class="card"><div class="card-body"><div id="analytics-email-scans" class="metric">—</div><span>Email scans</span></div></div></div>
+  <div class="col-md-4"><div class="card"><div class="card-body"><div id="legitimate-detections" class="metric risk-low">—</div><span>Legitimate detections</span></div></div></div>
+</div>
+<div class="row g-3 mt-2">
+  <section class="col-lg-6"><div class="card h-100"><div class="card-body"><h2 class="h5">Daily scan activity (last 7 days)</h2><canvas id="daily-activity-chart" class="analytics-chart" role="img" aria-label="Daily scan activity chart"></canvas></div></div></section>
+  <section class="col-lg-6"><div class="card h-100"><div class="card-body"><h2 class="h5">Risk distribution</h2><canvas id="risk-distribution-chart" class="analytics-chart" role="img" aria-label="Risk distribution chart"></canvas></div></div></section>
+  <section class="col-lg-6"><div class="card h-100"><div class="card-body"><h2 class="h5">URL versus email scans</h2><canvas id="scan-type-chart" class="analytics-chart" role="img" aria-label="URL versus email scan comparison chart"></canvas></div></div></section>
+</div>
+<p class="visually-hidden">Charts reflect the authenticated user's stored scan records only.</p>
+ </main></div>
+<script th:src="@{/js/phishguard.js}"></script></body></html>

@@ -1,0 +1,42 @@
+:root {
+  --navy: #071426;
+  --panel: #0d2038;
+  --cyan: #35c5ff;
+  --green: #42d3a0;
+  --yellow: #f6c85f;
+  --red: #ff6174;
+  --text: #e8f1f8;
+  --muted: #9fb3c8;
+}
+body { background: var(--navy); color: var(--text); min-height: 100vh; }
+.app-shell { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-width: 0; }
+.sidebar { min-height: 100vh; background: #091a2e; border-right: 1px solid #183650; padding: 1.25rem; }
+.sidebar a { color: var(--muted); display: block; padding: .7rem .8rem; border-radius: .5rem; text-decoration: none; }
+.sidebar a:hover, .sidebar a.active { color: white; background: #12314f; }
+.main { min-width: 0; padding: 2rem; }
+.card, .card-body { background: var(--panel) !important; color: var(--text); border-color: #1a3b5b; }
+.metric { font-size: 1.8rem; font-weight: 700; }
+.risk-low { color: var(--green); } .risk-medium { color: var(--yellow); }
+.risk-high, .risk-critical { color: var(--red); }
+.analytics-chart { display: block; width: 100%; height: 260px; }
+.auth-page { max-width: 440px; margin: 8vh auto; }
+.form-control, .form-control:focus, .form-select, .form-select:focus { background: #091a2e; color: white; border-color: #254a69; }
+.btn-primary { background: #1478b8; border-color: #1478b8; }
+@media (max-width: 760px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { min-height: auto; }
+  .main { padding: 1rem; }
+  .sidebar form, .sidebar form button { box-sizing: border-box; max-width: 100%; }
+  #history-filter-form .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0;
+  }
+  #history-filter-form .row > * { min-width: 0; width: auto; }
+  #history-filter-form .form-control,
+  #history-filter-form .form-select {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+  }
+}

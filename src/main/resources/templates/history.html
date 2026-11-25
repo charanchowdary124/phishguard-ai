@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="_csrf" th:content="${_csrf.token}"><meta name="_csrf_header" th:content="${_csrf.headerName}">
+<title>Scan History</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><link th:href="@{/css/phishguard.css}" rel="stylesheet"></head>
+<body><div class="app-shell"><aside class="sidebar"><h2 class="h5 mb-4">PhishGuard AI</h2><a href="/dashboard">Dashboard</a><a href="/scan/url">Website Scanner</a><a href="/scan/email">Email Scanner</a><a class="active" href="/history">Scan History</a><a href="/analytics">Threat Analytics</a><a href="/profile">Profile</a>
+<form method="post" action="/logout" class="mt-3"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><button class="btn btn-outline-light btn-sm w-100" type="submit">Logout</button></form></aside>
+<main class="main"><h1 class="h3 mb-4">Scan History</h1>
+<form id="history-filter-form" class="card mb-3"><div class="card-body row g-3 align-items-end">
+  <div class="col-lg-4"><label class="form-label" for="history-search">Search URL or email subject</label><input id="history-search" name="search" class="form-control" maxlength="2048"></div>
+  <div class="col-md-4 col-lg-2"><label class="form-label" for="history-type">Scan type</label><select id="history-type" name="scanType" class="form-select"><option value="">All</option><option value="URL">URL</option><option value="EMAIL">Email</option></select></div>
+  <div class="col-md-4 col-lg-2"><label class="form-label" for="history-risk">Risk level</label><select id="history-risk" name="riskLevel" class="form-select"><option value="">All</option><option value="LOW">Low</option><option value="MEDIUM">Medium</option><option value="HIGH">High</option></select></div>
+  <div class="col-md-4 col-lg-2"><label class="form-label" for="history-sort">Date order</label><select id="history-sort" name="sort" class="form-select"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></div>
+  <div class="col-lg-1 d-grid"><button class="btn btn-primary" type="submit">Apply</button></div>
+  <div class="col-lg-1 d-grid"><button class="btn btn-outline-light" type="reset">Reset</button></div>
+</div></form>
+<div id="history-content" class="alert alert-info">Loading your scan history…</div>
+<section id="history-detail" class="mt-4" aria-live="polite"></section>
+</main></div>
+<script th:src="@{/js/phishguard.js}"></script></body></html>

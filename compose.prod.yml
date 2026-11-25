@@ -1,0 +1,5 @@
+services:
+  app:
+    environment:
+      SESSION_COOKIE_SECURE: "true"
+      TRUSTED_PROXY_INTERNALS: ${TRUSTED_PROXY_INTERNALS:?Set TRUSTED_PROXY_INTERNALS to the trusted reverse proxy source IP or narrow regex}

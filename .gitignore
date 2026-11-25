@@ -1,0 +1,89 @@
+target/
+node_modules/
+playwright-report/
+test-results/
+.playwright/
+### Maven local distribution ###
+.mvn-tool/
+apache-maven-*/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/nbactions.xml
+/nb-configuration.xml
+.m2/
+
+### VS Code ###
+.vscode/
+
+### Secrets and Environment ###
+.env
+.env.*
+!.env.example
+*.env
+.envrc
+.envrc.*
+*.key
+*.pem
+*.crt
+*.cer
+*.der
+*.p8
+*.p12
+*.pfx
+*.p7b
+*.p7c
+*.jks
+*.keystore
+*.ppk
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+### Local databases and private data ###
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.mv.db
+*.h2.db
+*.dump
+*.backup
+/data/datasets/
+/data/private/
+/data/local/
+
+### Logs and OS files ###
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+### Trained model binaries and datasets (large files) ###
+/data/models/*.ser
+/data/models/*.bin
