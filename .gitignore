@@ -46,6 +46,11 @@ out/
 *.env
 .envrc
 .envrc.*
+secrets/
+.secrets/
+*.secret
+*.secrets
+*.credentials
 *.key
 *.pem
 *.crt
